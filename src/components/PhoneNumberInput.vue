@@ -42,6 +42,7 @@ export default {
       default: "es",
       validator: function(value) {
         if (Object.keys(translations).indexOf(value) === -1) {
+          // eslint-disable-next-line no-console
           console.error(`Locale ${value} is not supported`);
           return false;
         }
@@ -54,6 +55,7 @@ export default {
       validator: function(value) {
         const { es } = translations;
         if (Object.keys(es.countries).indexOf(value) === -1) {
+          // eslint-disable-next-line no-console
           console.error(`Country code '${value}' is not supported`);
           return false;
         }
