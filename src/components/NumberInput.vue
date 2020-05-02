@@ -7,6 +7,7 @@
       +{{ countryCallingCode }}
     </span>
     <input
+      id="phone__input"
       :class="inputClass"
       v-model="phoneNumberInput"
       type="text"
@@ -121,3 +122,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#phone__input {
+  width: 100%;
+}
+</style>
