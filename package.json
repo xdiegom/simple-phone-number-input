@@ -1,14 +1,19 @@
 {
-  "name": "phone-number-input",
+  "name": "simple-phone-number-input",
+  "description": "Simple text field to format international phone numbers. Made with VueJS 💚",
+  "author": "Diego Melgar <diego.melgar.sv@gmail.com>",
   "version": "1.0.0",
   "private": true,
-  "main": "./dist/phone-number-input.common.js",
+  "main": "./dist/simple-phone-number-input.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name phone-number-input src/main.js",
+    "build-lib": "vue-cli-service build --target lib --name simple-phone-number-input src/main.js",
     "lint": "vue-cli-service lint"
   },
+  "files": [
+    "dist/"
+  ],
   "dependencies": {
     "core-js": "^3.6.4",
     "libphonenumber-js": "^1.7.51",
@@ -26,5 +31,17 @@
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^1.19.1",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "input",
+    "phone",
+    "number",
+    "format",
+    "text",
+    "javascript",
+    "vue-component"
+  ],
+  "license": "MIT"
 }
