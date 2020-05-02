@@ -1,0 +1,26 @@
+.phone_input__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone_input__label {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.phone_input__input {
+  display: flex;
+  align-items: center;
+}
+
+.phone_input__select {
+  max-width: 10rem;
+}
+
+.phone_input__dial_code {
+  margin: 0 .2rem;
+}
+
+.phone_input__hidden_dial_code {
+  padding: 0 .2rem;
+}

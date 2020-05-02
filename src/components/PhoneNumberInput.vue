@@ -4,39 +4,33 @@
       <slot name="label">{{ labelTitle }}</slot>
     </label>
     <div class="phone_input__input">
-      <select class="phone_input__select" v-model="countryCode">
-        <option
-          v-for="country in countries"
-          :key="country.code"
-          :value="country.code"
-        >
-          {{ country.name }}
-        </option>
-      </select>
-      <span class="phone_input__dial_code"> +{{ countryCallingCode }} </span>
-      <input
+      <country-select
+        :selector-class="selectorClass"
+        :locale="locale"
+        v-model="countryCode"
+      />
+      <number-input
+        :input-class="inputClass"
+        :show-dial-code="showDialCode"
+        :locale="locale"
+        :country-code="countryCode"
         v-model="phoneNumberInput"
-        type="text"
-        v-mask="mask"
-        :placeholder="mask"
+        @onInput="onFormat"
       />
     </div>
   </div>
 </template>
 
 <script>
-import {
-  getExampleNumber,
-  parsePhoneNumberFromString
-} from "libphonenumber-js";
-import examples from "libphonenumber-js/examples.mobile.json";
-import translations from "../translations";
-import { VueMaskDirective } from "v-mask";
+import translations from "@/translations";
+import CountrySelect from "./CountrySelect";
+import NumberInput from "./NumberInput";
 
 export default {
   name: "PhoneNumberInput",
-  directives: {
-    mask: VueMaskDirective
+  components: {
+    CountrySelect,
+    NumberInput
   },
   props: {
     value: {
@@ -65,6 +59,18 @@ export default {
         }
         return true;
       }
+    },
+    showDialCode: {
+      type: Boolean,
+      default: true
+    },
+    inputClass: {
+      type: String,
+      default: null
+    },
+    selectorClass: {
+      type: String,
+      default: null
     }
   },
   data() {
@@ -77,111 +83,27 @@ export default {
     this.countryCode = this.defaultCountryCode;
   },
   watch: {
-    value(number) {
-      if (number) this.phoneNumberInput = number;
-    },
-    phoneNumberInput() {
-      this.format();
-    },
-    countryCode() {
-      this.format();
+    phoneNumberInput(value) {
+      this.$emit("input", value);
     }
   },
   computed: {
     labelTitle() {
       return translations[this.locale].label;
-    },
-    countries() {
-      const countries = translations[this.locale].countries;
-      return Object.keys(countries).map(code => {
-        return {
-          code: code,
-          name: countries[code]
-        };
-      });
-    },
-    countryCallingCode() {
-      if (this.phoneNumberExample)
-        return this.phoneNumberExample.countryCallingCode;
-
-      return "";
-    },
-    phoneNumberExample() {
-      const phoneNumber = this.countryCode
-        ? getExampleNumber(this.countryCode.toUpperCase(), examples)
-        : null;
-      return phoneNumber;
-    },
-    mask() {
-      const internationalPhoneNumberExample = this.phoneNumberExample
-        ? this.phoneNumberExample.formatInternational()
-        : null;
-      const nationalPhoneNumberExample = this.phoneNumberExample
-        ? this.phoneNumberExample.formatNational()
-        : null;
-
-      const phonePartMask = internationalPhoneNumberExample
-        ? internationalPhoneNumberExample.split(" ")
-        : [];
-
-      const mask =
-        phonePartMask.length > 1
-          ? nationalPhoneNumberExample.replace(/\d/g, "#")
-          : "";
-
-      return mask;
     }
   },
   methods: {
-    format() {
-      const number = this.phoneNumberInput;
-      if (number) {
-        const phoneNumber = parsePhoneNumberFromString(
-          number,
-          this.countryCode.toUpperCase()
-        );
-        if (phoneNumber) {
-          if (phoneNumber.country !== this.countryCode) {
-            this.countryCode = phoneNumber.country.toLowerCase();
-          }
-          const formatted = {
-            phoneNumberExample: this.phoneNumberExample.nationalNumber,
-            countryCode: phoneNumber.country,
-            countryCallingCode: phoneNumber.countryCallingCode,
-            nationalNumber: phoneNumber.nationalNumber,
-            internationalNumber: phoneNumber.number,
-            isValid: phoneNumber.isValid()
-          };
-          this.$emit("onFormatted", formatted);
-        }
-      } else this.$emit("onFormatted", null);
-      this.$emit("input", number);
+    onFormat(formatted) {
+      if (formatted) {
+        if (formatted.countryCode !== this.countryCode)
+          this.countryCode = formatted.countryCode.toLowerCase();
+      }
+      this.$emit("onFormatted", formatted);
     }
   }
 };
 </script>
 
 <style scoped>
-.phone_input__container {
-  display: flex;
-  flex-direction: column;
-}
-
-.phone_input__label {
-  font-weight: bold;
-  margin-bottom: 0.2rem;
-}
-
-.phone_input__input {
-  display: flex;
-  align-items: center;
-}
-
-.phone_input__dial_code {
-  margin: 0 0.2rem;
-}
-
-.phone_input__select {
-  max-width: 10rem;
-}
+@import "../assets/styles.css";
 </style>
