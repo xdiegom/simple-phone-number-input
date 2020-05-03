@@ -1,9 +1,9 @@
 {
   "name": "simple-phone-number-input",
-  "description": "Simple text field to format international phone numbers. Made with VueJS 💚",
+  "description": "Simple input field to format international phone numbers. Made with VueJS 💚",
   "author": "Diego Melgar <diego.melgar.sv@gmail.com>",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "main": "./dist/simple-phone-number-input.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -14,23 +14,21 @@
   "files": [
     "dist/"
   ],
-  "dependencies": {
-    "core-js": "^3.6.4",
-    "libphonenumber-js": "^1.7.51",
-    "v-mask": "^2.1.0",
-    "vue": "^2.6.11"
-  },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "prettier": "^1.19.1",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/cli-plugin-babel": "4.3.0",
+    "@vue/cli-plugin-eslint": "4.3.0",
+    "@vue/cli-service": "4.3.0",
+    "@vue/eslint-config-prettier": "6.0.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.7.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-vue": "6.2.2",
+    "prettier": "1.19.1",
+    "vue-template-compiler": "2.6.11",
+    "core-js": "3.6.4",
+    "libphonenumber-js": "1.7.51",
+    "v-mask": "2.1.0",
+    "vue": "2.6.11"
   },
   "keywords": [
     "vue",
