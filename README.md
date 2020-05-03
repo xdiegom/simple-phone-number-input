@@ -13,6 +13,10 @@
 
 ## Installation
 
+### Using yarn
+
+`yarn add simple-phone-number-input`
+
 ### Using npm
 
 `npm i --save simple-phone-number-input`
