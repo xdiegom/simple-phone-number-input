@@ -5,6 +5,7 @@
     </label>
     <div class="phone_input__input">
       <country-select
+        v-if="!noCountrySelector"
         :selector-class="selectorClass"
         :locale="locale"
         v-model="countryCode"
@@ -73,6 +74,10 @@ export default {
     selectorClass: {
       type: String,
       default: null
+    },
+    noCountrySelector: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
