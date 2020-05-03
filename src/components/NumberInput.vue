@@ -1,9 +1,9 @@
 <template>
   <div
     class="phone_input__input"
-    :class="{ phone_input__hidden_dial_code: !showDialCode }"
+    :class="{ phone_input__hidden_dial_code: noDialCode }"
   >
-    <span v-show="showDialCode" class="phone_input__dial_code">
+    <span v-show="!noDialCode" class="phone_input__dial_code">
       +{{ countryCallingCode }}
     </span>
     <input
@@ -35,9 +35,9 @@ export default {
       type: String,
       default: "sv"
     },
-    showDialCode: {
+    noDialCode: {
       type: Boolean,
-      default: true
+      default: false
     },
     inputClass: {
       type: String,

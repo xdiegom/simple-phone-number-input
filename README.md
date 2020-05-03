@@ -43,9 +43,9 @@ Vue.use(SimplePhoneNumberInput);
 | v-model                   | String          | true     | -                   |
 | locale                    | String          | false    |'es'                 |
 | default-country-code      | String          | false    |'sv'                 |
-| input-class  *         | String          | false    |-                    |
-| selector-class  *       | String          | false    |-                    |
-| show-dial-code            | Boolean         | false    |true                 |
+| input-class  *            | String          | false    |-                    |
+| selector-class  *         | String          | false    |-                    |
+| no-dial-code              | Boolean         | false    |false                |
 | no-country-selector       | Boolean         | false    |false                |
 
 \* These properties are used to apply custom or framework css classes.

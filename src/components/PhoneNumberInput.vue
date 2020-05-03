@@ -12,7 +12,7 @@
       />
       <number-input
         :input-class="inputClass"
-        :show-dial-code="showDialCode"
+        :no-dial-code="noDialCode"
         :locale="locale"
         :country-code="countryCode"
         v-model="phoneNumberInput"
@@ -63,9 +63,9 @@ export default {
         return true;
       }
     },
-    showDialCode: {
+    noDialCode: {
       type: Boolean,
-      default: true
+      default: false
     },
     inputClass: {
       type: String,
