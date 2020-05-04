@@ -2,7 +2,7 @@
   "name": "simple-phone-number-input",
   "description": "Simple input field to format international phone numbers. Made with VueJS 💚",
   "author": "Diego Melgar <diego.melgar.sv@gmail.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "./dist/simple-phone-number-input.common.js",
   "scripts": {
