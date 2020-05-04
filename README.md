@@ -11,6 +11,12 @@
 ### ✔ [v-mask 💚](https://github.com/probil/v-mask)
 ### ✔ [libphonenumber-js](https://github.com/catamphetamine/libphonenumber-js)
 
+## 🕹 DEMO
+
+Feel free to [play with it](https://101-simple-phone-number-input.netlify.app/)
+
+[Demo code](https://codesandbox.io/s/101-simple-phone-number-input-uwlwd?file=/src/App.vue)
+
 ## Installation
 
 ### Using yarn
