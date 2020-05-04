@@ -13,9 +13,9 @@
 
 ## 🕹 DEMO
 
-Feel free to [play with it](https://101-simple-phone-number-input.netlify.app/)
+Feel free to <a href="https://simple-phone-number-input.netlify.app/" target="_blank">play with it</a>
 
-[Demo code](https://codesandbox.io/s/101-simple-phone-number-input-uwlwd?file=/src/App.vue)
+<a href="https://codesandbox.io/s/simple-phone-number-input-uwlwd" target="_blank">Demo code</a>
 
 ## Installation
 
